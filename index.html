@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Code of Conduct Jenga — Playful Demo</title>
+  <meta name="description" content="Make choices, pull blocks, and keep the tower standing. A bright, playful demo for conference ethics gameplay." />
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-sparkle"></div>
+  <header class="topbar">
+    <h1><span class="brand">scarlettabbott</span> • Code of Conduct Jenga</h1>
+    <button id="btnHelp" class="ghost">?</button>
+  </header>
+
+  <main class="scene">
+    <section class="panel panel--intro" id="intro">
+      <div class="card glass">
+        <h2 class="title">Build the right thing</h2>
+        <p class="lead">Make choices across a few scenarios. Good calls keep your tower strong. Risky calls pull the wrong blocks and wobble the stack.</p>
+        <ul class="pill-legend">
+          <li><span class="pill pill--red"></span> Integrity</li>
+          <li><span class="pill pill--yellow"></span> Respect</li>
+          <li><span class="pill pill--blue"></span> Compliance</li>
+          <li><span class="pill pill--green"></span> Teamwork</li>
+        </ul>
+        <button id="startBtn" class="cta">Start game</button>
+      </div>
+    </section>
+
+    <section class="board" aria-label="Jenga board">
+      <div id="tower" class="tower" aria-live="polite"></div>
+      <div id="meter" class="meter" role="status" aria-live="polite">
+        <span id="stabilityLabel">Stability: 100%</span>
+        <div class="bar"><div id="stabilityBar" class="fill" style="width:100%"></div></div>
+      </div>
+    </section>
+
+    <section class="panel panel--question" id="questionPanel" hidden>
+      <div class="card">
+        <div class="qheader">
+          <h3 id="qTitle">Scenario</h3>
+          <span id="qTopic" class="tag">Integrity</span>
+        </div>
+        <p id="qText" class="qtext">Question text goes here.</p>
+        <div id="answers" class="answers"></div>
+      </div>
+    </section>
+
+    <section class="panel panel--result" id="resultPanel" hidden>
+      <div class="card glass">
+        <h2 id="resultTitle">Nice work!</h2>
+        <p id="resultText">Your tower still stands. You made mostly principled choices.</p>
+        <div class="result-actions">
+          <button id="playAgain" class="cta">Play again</button>
+          <button id="viewBreakdown" class="ghost">View breakdown</button>
+        </div>
+        <details id="breakdown" class="breakdown" hidden>
+          <summary>Choices breakdown</summary>
+          <ul id="summaryList"></ul>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Playful demo • Built for vibe-coding on GitHub • No libraries, just HTML/CSS/JS</small>
+  </footer>
+
+  <div id="helpModal" class="modal" hidden>
+    <div class="modal__card">
+      <h3>How it works</h3>
+      <ol>
+        <li>Answer each scenario honestly.</li>
+        <li>Your choice will remove or shake a colour-coded block.</li>
+        <li>Keep stability above zero to win.</li>
+      </ol>
+      <button id="closeHelp" class="cta small">Got it</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
